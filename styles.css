@@ -53,7 +53,8 @@ body {
     margin-top: 20px;              /* Separación respecto al bloque de bienvenida */
     display: flex;                 /* Distribuye los botones en línea */
     justify-content: space-between; /* Uno a la izquierda y otro a la derecha */
-    width: 320px;                  /* Puedes ajustar este ancho según prefieras */
+    width: 100%;
+    max-width: 320px; /* Puedes ajustar este ancho según prefieras */
     margin-left: auto;
     margin-right: auto;           /* Esto centra horizontalmente el contenedor */
     gap: 20px;                     /* 👉 Esto separa los botones entre sí */
@@ -99,5 +100,27 @@ body {
     50% {
         opacity: 1;
         filter: drop-shadow(0 0 12px rgba(178, 102, 255, 0.8)); /* antes 8px */
+    }
+}
+
+@media (max-width: 600px) {
+    #bienvenida {
+        margin: 60px auto;
+        padding: 10px;
+    }
+
+    #bienvenida h1 {
+        font-size: 1.2rem;
+    }
+
+    .btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+
+    .botones {
+        flex-direction: column;
+        gap: 10px;
+        max-width: 90%;
     }
 }
