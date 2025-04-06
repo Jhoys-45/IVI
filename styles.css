@@ -1,0 +1,103 @@
+* {
+    background-color: #070707; /* Cambia el color de fondo de toda la página a un tono oscuro */
+}
+
+body {
+    text-align: center; /* Centra los elementos inline e inline-block dentro del body */
+}
+
+#bienvenida {
+    position: relative;
+    margin: 120px auto;
+    padding: 10px 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    display: inline-block;
+    text-align: center;
+    z-index: 1;
+    background-color: #070707;
+    color: white;
+    border: 2px solid rgba(148, 90, 211, 0.4);
+    border-radius: 8px;
+    animation: pulsoBorde 4s ease-in-out infinite;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 2px solid rgb(34, 110, 224);
+    color: rgb(34, 110, 224);
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+  
+/* Botón de la derecha - Iniciar sesión */
+.btn.derecha:hover {
+    background-color: rgb(34, 110, 224);
+    color: black;
+    transform: translateY(-5px) scale(1.1); /* Se levanta ligeramente y se agranda */
+    box-shadow: 0 5px 15px rgb(34, 110, 224);
+}
+
+/* Botón de la izquierda - Registrarse */
+.btn.izquierda:hover {
+    background-color: rgb(34, 110, 224);
+    color: #070707;
+    transform: translateY(-5px) scale(1.1); /* Gira un poco hacia la izquierda */
+    box-shadow: 0 0 15px rgb(34, 110, 224);
+}
+
+.botones {
+    margin-top: 20px;              /* Separación respecto al bloque de bienvenida */
+    display: flex;                 /* Distribuye los botones en línea */
+    justify-content: space-between; /* Uno a la izquierda y otro a la derecha */
+    width: 320px;                  /* Puedes ajustar este ancho según prefieras */
+    margin-left: auto;
+    margin-right: auto;           /* Esto centra horizontalmente el contenedor */
+    gap: 20px;                     /* 👉 Esto separa los botones entre sí */
+}
+
+#bienvenida h1 {
+    font-weight: bold;
+    background: linear-gradient(
+        270deg,
+        rgb(68, 0, 120),
+        rgb(128, 0, 180),
+        rgb(178, 102, 255),
+        rgb(148, 90, 211),
+        rgb(108, 0, 180),
+        rgb(68, 0, 120)
+    );
+    background-size: 600% 600%;
+
+    /* 👇 Esto arregla la advertencia */
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+    animation: pulsoTexto 4s ease-in-out infinite;
+}
+
+@keyframes pulsoBorde {
+    0%, 100% {
+        box-shadow: 0 0 12px rgba(148, 90, 211, 0.4); /* lavanda suave */
+        border-color: rgba(162, 108, 235, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 24px rgba(128, 0, 128, 0.6); /* morado profundo */
+        border-color: rgba(108, 0, 180, 0.6);
+    }
+}
+
+@keyframes pulsoTexto {
+    0%, 100% {
+        opacity: 0.8;
+        filter: drop-shadow(0 0 4px rgba(178, 102, 255, 0.6)); /* antes 2px */
+    }
+    50% {
+        opacity: 1;
+        filter: drop-shadow(0 0 12px rgba(178, 102, 255, 0.8)); /* antes 8px */
+    }
+}
