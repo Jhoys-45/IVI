@@ -8,15 +8,87 @@
 </head>
     
 <body>
+
+    <nav class="navbar">
+        <ul>
+          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="#ayuda">Ayuda</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#pqr">PQR</a></li>
+        </ul>
+    </nav>
+      
+
     <div id = "bienvenida">
         <h1>IVI WEB</h1>
     </div>
+    
+    <h2 class="descripción">Tu modelo asistente virtual personal en un clic</h2>
+
+    <ul class="beneficios">
+        <li>💬 Personaliza tu AI para que responda como más quieras</li>
+        <li>🧠 IA sensual, atrevida y empática</li>
+        <li>🌐 Disponible directamente desde tu navegador</li>
+    </ul>    
 
     <div class="botones">
-        <button class="btn izquierda">Registrarse</button>
-        <button class="btn derecha">Iniciar Sesión</button>
+        <a href="#registro" class="btn izquierda">Registrarse</a>
+        <a href="#inicio" class="btn derecha">Iniciar Sesión</a>
     </div>
 
+    <!-- Sección de registro -->
+    <section id="registro" class="seccion-registro">
+        <h2>Crear una cuenta</h2>
+        <form id="formularioRegistro" method="POST">
+            <input type="email" name="correo" placeholder="Ingresa tu correo electrónico" required>
+            <input type="password" name="contrasena" placeholder="Crea una contraseña" required>
+            <button type="submit">Registrarme</button>
+        </form>
+    </section>
+
+    <script>
+        document.addEventListener("mousemove", function (e) {
+          const trail = document.createElement("div");
+          trail.className = "mouse-trail";
+          trail.style.left = e.pageX + "px";
+          trail.style.top = e.pageY + "px";
+          document.body.appendChild(trail);
+      
+          setTimeout(() => {
+            trail.remove();
+          }, 500); // duración del rastro en milisegundos
+        });
+    </script>
+
+    <section id="registro" class="seccion-registro seccion-oculta">
+    <section id="contacto" class="seccion-oculta"> ... </section>
+    <section id="ayuda" class="seccion-oculta"> ... </section>
+    <section id="nosotros" class="seccion-oculta"> ... </section>
+    <section id="pqr" class="seccion-oculta"> ... </section>
+
+    <script>
+        // Detecta clicks en los enlaces del navbar y muestra solo la sección correspondiente
+        document.querySelectorAll('nav a, .btn').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault(); // Evita que el navegador haga scroll automáticamente
+    
+                const id = this.getAttribute('href').substring(1); // Ej: 'contacto'
+                const section = document.getElementById(id);
+    
+                // Oculta todas las secciones primero
+                document.querySelectorAll('section').forEach(sec => {
+                    sec.classList.add('seccion-oculta');
+                });
+    
+                // Muestra solo la sección correspondiente
+                if (section) {
+                    section.classList.remove('seccion-oculta');
+                    section.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>  
+        
 </body>
 
 </html>
